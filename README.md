@@ -1,7 +1,6 @@
-## intersystems-objectscript-template
-This is a template for InterSystems ObjectScript Github repository.
-The template goes also with a few files which let you immedietly compile your ObjecScript files in InterSystems IRIS Community Edition in a docker container
-
+## iris-analytics-template
+This is a template for InterSystems IRIS Analytics (DeepSee) solutions.
+The template contains an example of the BI solution (which is being installed with samples-bi package) and all the necessary packages to visualize and devvelop IRIS Analytics solutons.
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
@@ -10,16 +9,10 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 Clone/git pull the repo into any local directory
 
 ```
-$ git clone https://github.com/intersystems-community/objectscript-docker-template.git
+$ git clone https://github.com/intersystems-community/iris-analytics-template.git
 ```
 
 Open the terminal in this directory and run:
-
-```
-$ docker-compose build
-```
-
-3. Run the IRIS container with your project:
 
 ```
 $ docker-compose up -d

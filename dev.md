@@ -7,6 +7,8 @@ docker-compose build --no-cache
 ```
 docker-compose exec iris iris session iris -U IRISAPP
 ```
-
-
+## export IRIS Analytics artifacts
+```
+d ##class(dev.code).export("*.DFI")
+```
 

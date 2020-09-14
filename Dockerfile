@@ -21,6 +21,7 @@ COPY iris.script /tmp/iris.script
 
 # load demo stuff
 RUN iris start IRIS \
-	&& iris session IRIS < /tmp/iris.script
+	&& iris session IRIS < /tmp/iris.script \
+    && iris stop IRIS quietly
 
 COPY /dsw/irisapp.json /usr/irissys/csp/dsw/configs/

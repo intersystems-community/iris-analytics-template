@@ -6,7 +6,8 @@
       },
     "objectscript.conn" :{
       "ns": "IRISAPP",
-      "active": true,
+      "username": "_SYSTEM",
+      "password": "SYS",
       "docker-compose": {
         "service": "iris",
         "internalPort": 52773
@@ -18,7 +19,6 @@
         "Architect":"http://localhost:${port}/csp/irisapp/_DeepSee.UI.Architect.zen?$NAMESPACE=IRISAPP"
         
     }
-    },
-    "objectscript.conn.active": true
+    }
 
 }

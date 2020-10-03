@@ -11,4 +11,8 @@ docker-compose exec iris iris session iris -U IRISAPP
 ```
 d ##class(dev.code).export("*.DFI")
 ```
+## build cube
+```
+do ##class(%DeepSee.Utils).%BuildCube("CubeName")
+```
 

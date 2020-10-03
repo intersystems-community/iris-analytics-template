@@ -1,4 +1,10 @@
 # useful commands
+
+## start container with iris
+```
+$ docker-compose up -d
+```
+
 ## build container with no cache
 ```
 docker-compose build --no-cache

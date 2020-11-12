@@ -21,4 +21,8 @@ d ##class(dev.code).export("*.DFI")
 ```
 do ##class(%DeepSee.Utils).%BuildCube("CubeName")
 ```
-
+## export globals
+```
+do $System.OBJ.Export("Demo*.GBL","/irisdev/app/src/gbl/globals.xml",,.errors)
+zw errors
+```

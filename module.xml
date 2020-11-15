@@ -14,7 +14,7 @@
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.irisbi.PKG"/>
       <Resource Name="dc*.GBL" />
-      <Resource Name="Covid19*.DFI" />
+      <Resource Name="*.DFI" />
       <Invokes>
         <Invoke Class="%DeepSee.Utils" Method="%BuildCube">
           <Arg>CovidCube</Arg>

@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="objectscript-sample.ZPM">
+  <Document name="irisbi-sample.ZPM">
     <Module>
-      <Name>objectscript-sample</Name>
+      <Name>irisbi-sample</Name>
       <Version>0.0.1</Version>
+      <Dependencies>
+        <ModuleReference>
+          <Name>dsw</Name>
+          <Version>3.*</Version>
+        </ModuleReference>
+      </Dependencies>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Name="PackageSample.PKG"/>
+      <Resource Name="dc.irisbi.PKG"/>
+      <Resource Name="dc*.GBL" />
+      <Resource Name="Covid19*.DFI" />
+      <Invokes>
+        <Invoke Class="%DeepSee.Utils" Method="%BuildCube">
+          <Arg>CovidCube</Arg>
+        </Invoke>
+      </Invokes>
     </Module>
   </Document>
 </Export>

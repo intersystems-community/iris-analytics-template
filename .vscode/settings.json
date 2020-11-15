@@ -19,6 +19,21 @@
         "Architect":"http://localhost:${port}/csp/irisapp/_DeepSee.UI.Architect.zen?$NAMESPACE=IRISAPP"
         
     }
-    }
+    },
+    "sqltools.connections": [
+      {
+        "namespace": "IRISAPP",
+        "connectionMethod": "Server and Port",
+        "showSystem": false,
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 32791,
+        "askForPassword": false,
+        "driver": "InterSystems IRIS",
+        "name": "iris",
+        "username": "_SYSTEM",
+        "password": "SYS"
+      }
+    ]
 
 }

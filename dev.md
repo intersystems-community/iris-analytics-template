@@ -1,5 +1,10 @@
 # useful commands
 
+## clean up docker 
+```
+docker system prune -f
+```
+
 ## start container with iris
 ```
 $ docker-compose up -d
@@ -9,6 +14,7 @@ $ docker-compose up -d
 ```
 docker-compose build --no-cache
 ```
+
 ## open terminal to docker
 ```
 docker-compose exec iris iris session iris -U IRISAPP
@@ -23,6 +29,6 @@ do ##class(%DeepSee.Utils).%BuildCube("CubeName")
 ```
 ## export globals
 ```
-do $System.OBJ.Export("Demo*.GBL","/irisdev/app/src/gbl/globals.xml",,.errors)
+do $System.OBJ.Export("dc*.GBL","/irisdev/app/src/gbl/globals.xml",,.errors)
 zw errors
 ```

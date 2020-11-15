@@ -13,7 +13,7 @@
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.irisbi.PKG"/>
-      <Resource Name="dc*.GBL" />
+      <Resource Name="dc.irisbi.covid19D.GBL" />
       <Resource Name="*.DFI" />
       <Invokes>
         <Invoke Class="%DeepSee.Utils" Method="%BuildCube">

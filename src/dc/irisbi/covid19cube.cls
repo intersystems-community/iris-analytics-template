@@ -69,4 +69,24 @@ XData Cube [ XMLNamespace = "http://www.intersystems.com/deepsee" ]
 
 Parameter DOMAIN;
 
+
+/// Stop Journalling in the current database
+ClassMethod StopJournalling(db as %String) As %Status
+{
+  Set sc = $$$OK
+  // disable journalling
+  set ns=$ZNSPACE
+  zn "%SYS"
+  set path = ##class(Config.Databases).Open(db).Directory
+  set database = ##class(SYS.Database).%OpenId($get(path))
+  if $IsObject(database)  {
+    do database.DisableJournaling() 
+    set sc = database.%Save()
+    }
+  else { 
+    set sc=$$$ERROR($$$GeneralError,"Custom error message")}
+  zn ns
+  Return sc
+}
+
 }

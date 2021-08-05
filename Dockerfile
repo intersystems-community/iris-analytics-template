@@ -1,7 +1,3 @@
-ARG IMAGE=store/intersystems/iris-aa-community:2020.3.0AA.331.0
-ARG IMAGE=intersystemsdc/iris-community:2020.2.0.196.0-zpm
-ARG IMAGE=intersystemsdc/iris-aa-community:2020.3.0AA.331.0-zpm
-ARG IMAGE=intersystemsdc/iris-community:2020.3.0.200.0-zpm
 ARG IMAGE=intersystemsdc/iris-community:2020.4.0.547.0-zpm
 ARG IMAGE=intersystemsdc/iris-community
 FROM $IMAGE
@@ -15,17 +11,12 @@ USER ${ISC_PACKAGE_MGRUSER}
 # copy files
 COPY  Installer.cls .
 COPY src src
+COPY dsw dsw
 COPY  module.xml .  
 COPY iris.script /tmp/iris.script
 
-
-# special extract treatment for hate-speech dataset
-# RUN mkdir /data/hate-speech/ \
-#	&& tar -xf /data/hate-speech.tar -C /data/
-
-# load demo stuff
+# run iris and script
 RUN iris start IRIS \
 	&& iris session IRIS < /tmp/iris.script \
     && iris stop IRIS quietly
 
-COPY /dsw/irisapp.json /usr/irissys/csp/dsw/configs/

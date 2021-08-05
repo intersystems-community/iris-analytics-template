@@ -1,30 +1,29 @@
-; run installer to create namespace
-do $SYSTEM.OBJ.Load("/opt/irisapp/Installer.cls", "ck")
-set sc = ##class(App.Installer).setup() 
+    ; run installer to create namespace
+    do $SYSTEM.OBJ.Load("/opt/irisapp/Installer.cls", "ck")
+    set sc = ##class(App.Installer).setup() 
 
-zn "IRISAPP"
-;do $System.OBJ.LoadDir("/opt/irisapp/src","ck",,1)
-;zpm "install dsw"
-zpm "install isc-dev" 
-do ##class(dev.code).workdir("/irisdev/app/src")
-do EnableDeepSee^%SYS.cspServer("/csp/irisapp/")
-;do ##class(%DeepSee.Utils).%BuildCube("CovidCube")
-;zpm "install samples-bi"
-;zpm "install csvgen"
-;set file="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-14-2020.csv"
-;zw ##class(community.csvgen).GenerateFromURL(file,",","dc.irisbi.covid19")
-;zw ##class(%DeepSee.WizardUtils).%GenerateCubeDefinition("dc.irisbi.covid19","CovidCube","dc.irisbi.covid19cube",1)
+    zn "IRISAPP"
+    zpm "install isc-dev" 
+    do ##class(dev.code).workdir("/irisdev/app/src")
+    do EnableDeepSee^%SYS.cspServer("/csp/irisapp/")
+    ;do ##class(%DeepSee.Utils).%BuildCube("CovidCube")
+    ;zpm "install samples-bi"
+    ;zpm "install csvgen"
+    ;set file="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/11-14-2020.csv"
+    ;zw ##class(community.csvgen).GenerateFromURL(file,",","dc.irisbi.covid19")
+    ;zw ##class(%DeepSee.WizardUtils).%GenerateCubeDefinition("dc.irisbi.covid19","CovidCube","dc.irisbi.covid19cube",1)
 
 
-zpm "load /opt/irisapp/ -v"
+    ;zpm "load /opt/irisapp/ -v"
+    zpm "load /opt/irisapp/ -v -Dfolder=irisapp"
 
-zn "%SYS" 
-w ##class(Security.Users).UnExpireUserPasswords("*")
-write "Modifying MDX2JSON application security...",! 
-set webName = "/mdx2json" 
-set webProperties("AutheEnabled") = 64 
-set webProperties("MatchRoles")=":%DB_IRISAPP" 
-set sc = ##class(Security.Applications).Modify(webName, .webProperties) 
-if sc<1 write $SYSTEM.OBJ.DisplayError(sc) 
+    zn "%SYS" 
+    w ##class(Security.Users).UnExpireUserPasswords("*")
+    write "Modifying MDX2JSON application security...",! 
+    set webName = "/mdx2json" 
+    set webProperties("AutheEnabled") = 64 
+    set webProperties("MatchRoles")=":%DB_IRISAPP" 
+    set sc = ##class(Security.Applications).Modify(webName, .webProperties) 
+    if sc<1 write $SYSTEM.OBJ.DisplayError(sc) 
 
-halt
+    halt

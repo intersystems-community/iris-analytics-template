@@ -16,6 +16,9 @@ zpm "install iris-analytics-sample"
 ```
 then open http://localhost:32792/dsw/index.html#/USER
 
+you should see a dashboard with the data on confirmed COVID-19 cases distributed by countries and its provinces, like that:
+<img width="1435" alt="Screenshot 2022-08-17 at 11 36 32" src="https://user-images.githubusercontent.com/2781759/185061795-22d3243b-9b9e-474c-977f-07d824cdadc6.png">
+
 ### Docker
 The repo is dockerised so you can  clone/git pull the repo into any local directory
 

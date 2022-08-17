@@ -1,22 +1,15 @@
-ARG IMAGE=intersystemsdc/iris-community:2020.4.0.547.0-zpm
+ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community
 FROM $IMAGE
 
-USER root
-WORKDIR /opt/irisapp
-RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
+WORKDIR /home/irisowner/irisbuild
 
-USER ${ISC_PACKAGE_MGRUSER}
+ARG TESTS=0
+ARG MODULE="iris-analytics-sample"
+ARG NAMESPACE="USER"
 
-# copy files
-COPY  Installer.cls .
-COPY src src
-COPY dsw dsw
-COPY  module.xml .  
-COPY iris.script /tmp/iris.script
-
-# run iris and script
-RUN iris start IRIS \
-	&& iris session IRIS < /tmp/iris.script \
-    && iris stop IRIS quietly
-
+RUN --mount=type=bind,src=.,dst=. \
+    iris start IRIS && \
+	iris session IRIS < iris.script && \
+    ([ $TESTS -eq 0 ] || iris session iris -U $NAMESPACE "##class(%ZPM.PackageManager).Shell(\"test $MODULE -v -only\",1,1)") && \
+    iris stop IRIS quietly

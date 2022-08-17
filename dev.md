@@ -17,7 +17,7 @@ docker-compose build --no-cache --progress=plain
 
 ## open terminal to docker
 ```
-docker-compose exec iris iris session iris -U IRISAPP
+docker-compose exec iris iris session iris -U USER
 ```
 ## export IRIS Analytics artifacts
 ```

@@ -69,13 +69,13 @@ XData Cube [ XMLNamespace = "http://www.intersystems.com/deepsee" ]
 
 Parameter DOMAIN;
 
-
-/// Stop Journalling in the current database
-ClassMethod StopJournalling(db as %String) As %Status
+/// Stop Journalling in the database
+ClassMethod StopJournalling(db As %String) As %Status
 {
   Set sc = $$$OK
   // disable journalling
   set ns=$ZNSPACE
+  if $g(db)="" set db=ns
   zn "%SYS"
   set path = ##class(Config.Databases).Open(db).Directory
   set database = ##class(SYS.Database).%OpenId($get(path))
@@ -84,9 +84,20 @@ ClassMethod StopJournalling(db as %String) As %Status
     set sc = database.%Save()
     }
   else { 
-    set sc=$$$ERROR($$$GeneralError,"Custom error message")}
+    set sc=$$$ERROR($$$GeneralError,"Cannot find database "_db)}
   zn ns
   Return sc
 }
 
+ClassMethod EnableIRISBI(ns As %String) As %Status
+{
+  Set sc = $$$OK
+  set ns=$g(ns) 
+  if ns="" set ns=$ZNSPACE
+  set ns=$$$LOWER(ns)
+  do EnableDeepSee^%SYS.cspServer("/csp/"_ns_"/")
+  Return sc
 }
+
+}
+

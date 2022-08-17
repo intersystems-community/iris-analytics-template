@@ -5,7 +5,7 @@
         "iris.script": "objectscript"
       },
     "objectscript.conn" :{
-      "ns": "IRISAPP",
+      "ns": "USER",
       "username": "_SYSTEM",
       "password": "SYS",
       "docker-compose": {
@@ -13,27 +13,12 @@
         "internalPort": 52773
       },
       "links": {
-        "DSW Dashboards": "http://localhost:${port}/dsw/index.html#/IRISAPP/",
-        "Dashboards Portal": "http://localhost:${port}/csp/irisapp/_DeepSee.UserPortal.Home.zen",
-        "Analyzer": "http://localhost:${port}/csp/irisapp/_DeepSee.UserPortal.Analyzer.zen",
-        "Architect": "http://localhost:${port}/csp/irisapp/_DeepSee.UI.Architect.zen?$NAMESPACE=IRISAPP"
+        "DSW Dashboards": "http://localhost:${port}/dsw/index.html#/USER/",
+        "Dashboards Portal": "http://localhost:${port}/csp/user/_DeepSee.UserPortal.Home.zen",
+        "Analyzer": "http://localhost:${port}/csp/user/_DeepSee.UserPortal.Analyzer.zen",
+        "Architect": "http://localhost:${port}/csp/user/_DeepSee.UI.Architect.zen?$NAMESPACE=USER"
       },
       "active": true
-    },
-    "sqltools.connections": [
-      {
-        "namespace": "IRISAPP",
-        "connectionMethod": "Server and Port",
-        "showSystem": false,
-        "previewLimit": 50,
-        "server": "localhost",
-        "port": 32791,
-        "askForPassword": false,
-        "driver": "InterSystems IRIS",
-        "name": "iris",
-        "username": "_SYSTEM",
-        "password": "SYS"
-      }
-    ]
+    }
 
 }

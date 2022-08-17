@@ -19,11 +19,13 @@
         <Invoke Class="%DeepSee.Utils" Method="%BuildCube">
           <Arg>CovidCube</Arg>
         </Invoke>
+        <Invoke Class="dc.irisbi.covid19cube" Method="EnableIRISBI">
+        </Invoke>
         <Invoke Class="dc.irisbi.covid19cube" Method="StopJournalling">
-          <Arg>IRISAPP</Arg>
+          <Arg>USER</Arg>
         </Invoke>
       </Invokes>
-      <Parameter Name="folder" Value="irisapp" />
+      <Parameter Name="folder" Value="user" />
       <FileCopy Name="dsw/irisapp.json" Target="${cspdir}dsw/configs/${folder}.json"/>
     </Module>
   </Document>

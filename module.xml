@@ -26,7 +26,7 @@
         </Invoke>
       </Invokes>
       <Parameter Name="folder" Value="user" />
-      <FileCopy Name="dsw/irisapp.json" Target="${cspdir}dsw/configs/${folder}.json"/>
+      <FileCopy Name="dsw/user.json" Target="${cspdir}dsw/configs/${folder}.json"/>
     </Module>
   </Document>
 </Export>

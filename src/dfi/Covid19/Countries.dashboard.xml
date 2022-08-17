@@ -9,6 +9,9 @@
     <control name="" action="applyFilter" target="Widget3" targetProperty="" location="click" type="auto" controlClass="" label="" title="" value="" text="" readOnly="false" valueList="" displayList="" activeWhen="">
       <valueRequired>false</valueRequired>
     </control>
+    <control name="" action="setRowCount" target="" targetProperty="" location="widget" type="auto" controlClass="" label="Show top countries" title="" value="30" text="" readOnly="false" valueList="" displayList="" activeWhen="">
+      <valueRequired>false</valueRequired>
+    </control>
   </widget>
   <widget name="Widget3" type="pivot" subtype="pivot" subtypeClass="lineChart" title="Provinces by Confirmed" dataSource="Covid19/ConfirmedByProvince.pivot" dataLink="" drillDownDataSource="" width="200" height="200" sidebarContent="" showSidebar="false" sidebarWidth="" maximized="false" homeRowL="0" homeColL="5" colSpanL="5" rowSpanL="5" showToolbar="true" showToolbarBottomBorder="true" showToolbarOnlyWhenMaximized="false" colorToolbar="#F0F0F0" opacityToolbar="1" backgroundColor="#F0F0F0" opacity="1" theme="" dataColorList="">
   </widget>

@@ -32,3 +32,6 @@ do ##class(%DeepSee.Utils).%BuildCube("CubeName")
 do $System.OBJ.Export("dc*.GBL","/irisdev/app/src/gbl/globals.xml",,.errors)
 zw errors
 ```
+
+
+zw ##class(SourceControl.Git.PackageManagerContext).ForInternalName("Covid19-Countries.dashboard.DFI")

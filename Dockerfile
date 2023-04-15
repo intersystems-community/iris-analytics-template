@@ -1,8 +1,8 @@
-ARG IMAGE=intersystemsdc/irishealth-community
 ARG IMAGE=intersystemsdc/iris-community
+ARG IMAGE=intersystemsdc/irishealth-community
 FROM $IMAGE
 
-WORKDIR /home/irisowner/irisbuild
+WORKDIR /home/irisowner/irisdev/
 
 ARG TESTS=0
 ARG MODULE="iris-analytics-sample"

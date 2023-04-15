@@ -2,15 +2,20 @@
     
     zn "USER"
     zpm "install isc-dev" 
-    do ##class(dev.code).workdir("/irisdev/app/src")
+    do ##class(dev.code).workdir("/home/irisowner/irisdev/src")
+    zpm "install git-source-control"
+    do ##class(%Studio.SourceControl.Interface).SourceControlClassSet("SourceControl.Git.Extension")
+    
     ;zpm "install csvgen"
     ;set file="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/08-15-2022.csv"
     ;zw ##class(community.csvgen).GenerateFromURL(file,",","dc.irisbi.covid19")
     ;zw ##class(%DeepSee.WizardUtils).%GenerateCubeDefinition("dc.irisbi.covid19","CovidCube","dc.irisbi.covid19cube",1)
 
-    zpm "load /home/irisowner/irisbuild -v"
+    zpm "load /home/irisowner/irisdev/ -v"
 
     zn "%SYS" 
+    ;zpm "install passwordless"
+
     w ##class(Security.Users).UnExpireUserPasswords("*")
     write "Modifying MDX2JSON application security...",! 
     set webName = "/mdx2json" 

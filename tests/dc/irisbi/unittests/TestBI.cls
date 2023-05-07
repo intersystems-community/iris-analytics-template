@@ -1,4 +1,4 @@
-Class tests.dc.irisbi.unittests.TestBI Extends %UnitTest.TestCase
+Class dc.irisbi.unittests.TestBI Extends %UnitTest.TestCase
 {
 
 Method TestPivots()

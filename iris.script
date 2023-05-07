@@ -1,22 +1,34 @@
-    ; run installer to create namespace
-    
+    // Unexpire passwords to simplify dev mode. Comment these two lines for Production use
+    zn "%SYS"
+    Do ##class(Security.Users).UnExpireUserPasswords("*")
+
     zn "USER"
-    zpm "install isc-dev" 
-    do ##class(dev.code).workdir("/irisdev/app/src")
+    zpm "install isc-dev"
+    do ##class(dev.code).workdir("/home/irisowner/irisdev/src")
+
     ;zpm "install csvgen"
     ;set file="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/08-15-2022.csv"
     ;zw ##class(community.csvgen).GenerateFromURL(file,",","dc.irisbi.covid19")
     ;zw ##class(%DeepSee.WizardUtils).%GenerateCubeDefinition("dc.irisbi.covid19","CovidCube","dc.irisbi.covid19cube",1)
+    ;zw $System.OBJ.Compile("dc.irisbi.covid19cube")
+    ;zw ##class(%DeepSee.Utils).%BuildCube("dc.irisbi.covid19cube")
 
-    zpm "load /home/irisowner/irisbuild -v"
 
-    zn "%SYS" 
-    w ##class(Security.Users).UnExpireUserPasswords("*")
-    write "Modifying MDX2JSON application security...",! 
-    set webName = "/mdx2json" 
-    set webProperties("AutheEnabled") = 64 
-    set webProperties("MatchRoles")=":%DB_USER" 
-    set sc = ##class(Security.Applications).Modify(webName, .webProperties) 
-    if sc<1 write $SYSTEM.OBJ.DisplayError(sc) 
+    zpm "load /home/irisowner/irisdev/ -v"
+
+    zpm "install git-source-control"
+    do ##class(%Studio.SourceControl.Interface).SourceControlClassSet("SourceControl.Git.Extension")
+
+
+    zn "%SYS"
+    zpm "install passwordless"
+
+    ; w ##class(Security.Users).UnExpireUserPasswords("*")
+    ; write "Modifying MDX2JSON application security...",!
+    ; set webName = "/mdx2json"
+    ; set webProperties("AutheEnabled") = 64
+    ; set webProperties("MatchRoles")=":%DB_USER"
+    ; set sc = ##class(Security.Applications).Modify(webName, .webProperties)
+    ; if sc<1 write $SYSTEM.OBJ.DisplayError(sc)
 
     halt

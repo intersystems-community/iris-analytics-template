@@ -3,7 +3,7 @@
   <Document name="iris-analytics-sample.ZPM">
     <Module>
       <Name>iris-analytics-sample</Name>
-      <Version>1.0.6</Version>
+      <Version>1.1.0</Version>
       <Dependencies>
         <ModuleReference>
           <Name>dsw</Name>
@@ -14,7 +14,14 @@
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.irisbi.PKG"/>
       <Resource Name="dc.irisbi.covid19D.GBL" />
-      <Resource Name="*.DFI" />
+      <!-- <Resource Name="*.DFI" /> -->
+      <Resource FilenameExtension="dfi" Name="Covid19-Countries.dashboard.DFI" />
+      <Resource Name="Covid19-Died.pivot.DFI" />
+      <Resource Name="Covid19-ConfirmedByProvince80.pivot.DFI" />
+      <Resource Name="Covid19-Confirmed.pivot.DFI" />
+      <Resource Name="Covid19-ConfirmedByCountries.pivot.DFI" />
+      <Resource Name="Covid19-ConfirmedByProvince.pivot.DFI" />
+      <UnitTest Name="/tests" Package="dc.irisbi.unittests" Phase="test"/>
       <Invokes>
         <Invoke Class="%DeepSee.Utils" Method="%BuildCube">
           <Arg>CovidCube</Arg>

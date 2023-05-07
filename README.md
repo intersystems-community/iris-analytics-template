@@ -7,7 +7,7 @@
 This is a template for InterSystems IRIS Analytics (DeepSee) solutions.
 The template contains a very basic example of the BI solution which contains one source class, data, one cube, two pivots and one dashboard.
 
-## Installation 
+## Installation
 
 ### ZPM
 It's packaged with ZPM so it could be installed as:
@@ -84,6 +84,12 @@ do $System.OBJ.Export("dc*.GBL","/irisdev/app/src/gbl/dc.irisbi.covid19D.xml",,.
 
 after that ZPM module.xml was created manually which includes classes, DFI, global and calls %DeepSee.Utils("Covid19Cube") to build the cube data.
 
+
+### How to run unittests
+
+This template goes with TestBI.cls unittest which tests all the pivots and dashboards in a namespace.
+Test runs with every commit into Github.
+Also you can call the test manually.
 
 
 ## What's inside the repository

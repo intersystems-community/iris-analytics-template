@@ -3,7 +3,7 @@ Class dc.irisbi.unittests.TestBI Extends %UnitTest.TestCase
 
 Method TestPivots()
 {
-     Do $$$AssertStatusOK(##class(dev.bi).checkAllPivots(),"Test Pivots")
+     Do $$$AssertStatusOK(##class(dev.bi).checkPivots(),"Test Pivots")
 }
 
 /// Test dashboards in BI package

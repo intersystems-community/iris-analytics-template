@@ -3,8 +3,12 @@
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
     zn "USER"
+    // Enable IRIS BI
+    do EnableDeepSee^%SYS.cspServer("/csp/user/")
+
     zpm "install isc-dev"
     do ##class(dev.code).workdir("/home/irisowner/irisdev/src")
+
 
     ;zpm "install csvgen"
     ;set file="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/08-15-2022.csv"

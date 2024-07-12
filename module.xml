@@ -15,12 +15,12 @@
       <Resource Name="dc.irisbi.PKG"/>
       <Resource Name="dc.irisbi.covid19D.GBL" />
       <!-- <Resource Name="*.DFI" /> -->
-      <Resource FilenameExtension="dfi" Name="Covid19-Countries.dashboard.DFI" />
-      <Resource Name="Covid19-Died.pivot.DFI" />
-      <Resource Name="Covid19-ConfirmedByProvince80.pivot.DFI" />
-      <Resource Name="Covid19-Confirmed.pivot.DFI" />
-      <Resource Name="Covid19-ConfirmedByCountries.pivot.DFI" />
-      <Resource Name="Covid19-ConfirmedByProvince.pivot.DFI" />
+      <Resource Directory="dfi" FilenameExtension="dfi" Name="Covid19-Countries.dashboard.DFI" />
+      <Resource Directory="dfi" Name="Covid19-Died.pivot.DFI" />
+      <Resource Directory="dfi" Name="Covid19-ConfirmedByProvince80.pivot.DFI" />
+      <Resource Directory="dfi" Name="Covid19-Confirmed.pivot.DFI" />
+      <Resource Directory="dfi" Name="Covid19-ConfirmedByCountries.pivot.DFI" />
+      <Resource Directory="dfi" Name="Covid19-ConfirmedByProvince.pivot.DFI" />
       <UnitTest Name="/tests" Package="dc.irisbi.unittests" Phase="test"/>
       <Invokes>
         <Invoke Class="%DeepSee.Utils" Method="%BuildCube">
